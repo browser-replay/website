@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>browser-replay — Record and replay DOM interactions</title>
+  <meta name="description" content="browser-replay is an open source library for recording and replaying DOM interactions. Capture sessions, replay bugs, and build richer debugging tools." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="browser-replay" />
+  <meta property="og:description" content="Open source library for recording and replaying DOM interactions." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://browserreplay.com" />
+  <meta property="og:image" content="https://browserreplay.com/public/og-image.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="browser-replay" />
+  <meta name="twitter:description" content="Open source library for recording and replaying DOM interactions." />
+  <meta name="twitter:image" content="https://browserreplay.com/public/og-image.png" />
+
+  <link rel="icon" href="/public/favicon.ico" />
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+
+  <!-- Nav -->
+  <header class="nav">
+    <a href="/" class="nav__logo">browser-replay</a>
+    <nav class="nav__links">
+      <a href="#install">Docs</a>
+      <a href="#packages">Packages</a>
+      <a href="https://github.com/browser-replay/browser-replay" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero__badges">
+        <img src="https://github.com/browser-replay/browser-replay/actions/workflows/ci.yml/badge.svg" alt="CI" />
+        <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="MIT License" />
+        <img src="https://img.shields.io/npm/v/@browser-replay/core.svg" alt="npm version" />
+      </div>
+      <h1 class="hero__title">Record and replay<br />DOM interactions</h1>
+      <p class="hero__subtitle">
+        browser-replay is an open source library for capturing and replaying browser sessions.
+        Reproduce bugs exactly, build richer debugging tools, and understand how users interact with your app.
+      </p>
+      <div class="hero__ctas">
+        <a href="#install" class="btn btn--primary">Get started</a>
+        <a href="https://github.com/browser-replay/browser-replay" class="btn btn--ghost" target="_blank" rel="noopener">View on GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Code example -->
+  <section class="code-section" id="install">
+    <div class="container">
+      <div class="code-cols">
+        <div class="code-col">
+          <h2>Record</h2>
+          <p>Capture every DOM mutation, user interaction, and network event with a single function call.</p>
+          <pre><code><span class="c">npm install @browser-replay/record</span></code></pre>
+          <pre><code><span class="kw">import</span> { record } <span class="kw">from</span> <span class="str">'@browser-replay/record'</span>;
+
+record({
+  emit(event) {
+    <span class="c">// send to your backend</span>
+    sendToServer(event);
+  },
+});</code></pre>
+        </div>
+        <div class="code-col">
+          <h2>Replay</h2>
+          <p>Play back any recorded session pixel-perfectly inside a React player component.</p>
+          <pre><code><span class="c">npm install @browser-replay/player react react-dom</span></code></pre>
+          <pre><code><span class="kw">import</span> { DomReplayPlayer } <span class="kw">from</span> <span class="str">'@browser-replay/player'</span>;
+<span class="kw">import</span> <span class="str">'@browser-replay/player/dist/style.css'</span>;
+
+&lt;<span class="tag">DomReplayPlayer</span> <span class="attr">events</span>={events} /&gt;</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use cases -->
+  <section class="features">
+    <div class="container">
+      <h2 class="section-title">What you can build</h2>
+      <div class="features__grid">
+        <div class="feature">
+          <div class="feature__icon">🐛</div>
+          <h3>Bug reproduction</h3>
+          <p>Attach a session replay to every bug report. Stop asking users to reproduce issues manually.</p>
+        </div>
+        <div class="feature">
+          <div class="feature__icon">🧪</div>
+          <h3>Test generation</h3>
+          <p>Record real user flows and replay them as automated integration tests.</p>
+        </div>
+        <div class="feature">
+          <div class="feature__icon">📊</div>
+          <h3>UX research</h3>
+          <p>Watch exactly what users see — hesitations, rage clicks, scroll depth — without guessing.</p>
+        </div>
+        <div class="feature">
+          <div class="feature__icon">🔍</div>
+          <h3>Incident analysis</h3>
+          <p>Replay the exact sequence of events that led up to a production error.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Packages -->
+  <section class="packages" id="packages">
+    <div class="container">
+      <h2 class="section-title">Packages</h2>
+      <p class="section-subtitle">Install only what you need. All packages are independently versioned.</p>
+      <table class="pkg-table">
+        <thead>
+          <tr>
+            <th>Package</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="https://www.npmjs.com/package/@browser-replay/record" target="_blank" rel="noopener"><code>@browser-replay/record</code></a></td>
+            <td>Record DOM events</td>
+          </tr>
+          <tr>
+            <td><a href="https://www.npmjs.com/package/@browser-replay/replay" target="_blank" rel="noopener"><code>@browser-replay/replay</code></a></td>
+            <td>Replay engine</td>
+          </tr>
+          <tr>
+            <td><a href="https://www.npmjs.com/package/@browser-replay/player" target="_blank" rel="noopener"><code>@browser-replay/player</code></a></td>
+            <td>React player UI</td>
+          </tr>
+          <tr>
+            <td><a href="https://www.npmjs.com/package/@browser-replay/player-core" target="_blank" rel="noopener"><code>@browser-replay/player-core</code></a></td>
+            <td>Shared player logic (framework-agnostic)</td>
+          </tr>
+          <tr>
+            <td><a href="https://www.npmjs.com/package/@browser-replay/core" target="_blank" rel="noopener"><code>@browser-replay/core</code></a></td>
+            <td>Record + replay core primitives</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Open source / attribution -->
+  <section class="oss">
+    <div class="container">
+      <h2 class="section-title">Open source</h2>
+      <p>
+        browser-replay is released under the <strong>MIT License</strong> and built on the shoulders of
+        <a href="https://github.com/rrweb-io/rrweb" target="_blank" rel="noopener">rrweb</a>.
+        Contributions are welcome — open an issue, send a PR, or join the discussion on GitHub.
+      </p>
+      <div class="oss__links">
+        <a href="https://github.com/browser-replay/browser-replay" class="btn btn--ghost" target="_blank" rel="noopener">GitHub repo</a>
+        <a href="https://github.com/browser-replay/browser-replay/issues" class="btn btn--ghost" target="_blank" rel="noopener">Issues</a>
+        <a href="https://github.com/browser-replay/browser-replay/discussions" class="btn btn--ghost" target="_blank" rel="noopener">Discussions</a>
+        <a href="https://github.com/browser-replay/browser-replay/blob/master/CONTRIBUTING.md" class="btn btn--ghost" target="_blank" rel="noopener">Contributing</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>
+        &copy; 2024 browser-replay contributors &mdash; MIT License &mdash;
+        Built on <a href="https://github.com/rrweb-io/rrweb" target="_blank" rel="noopener">rrweb</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
