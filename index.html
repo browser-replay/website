@@ -3,21 +3,55 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>browser-replay — Record and replay DOM interactions</title>
-  <meta name="description" content="browser-replay is an open source library for recording and replaying DOM interactions. Capture sessions, replay bugs, and build richer debugging tools." />
+  <title>browser-replay — Open source session replay library for the browser</title>
+  <meta name="description" content="browser-replay is an open source TypeScript library for recording and replaying browser sessions. Capture DOM events, reproduce bugs exactly, generate tests from real user flows, and build session replay tools." />
+  <link rel="canonical" href="https://browserreplay.com" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="browser-replay" />
-  <meta property="og:description" content="Open source library for recording and replaying DOM interactions." />
+  <meta property="og:title" content="browser-replay — Open source session replay library" />
+  <meta property="og:description" content="Record and replay DOM interactions with this open source TypeScript library. Reproduce bugs exactly, generate tests from real user flows, and build session replay tools." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://browserreplay.com" />
   <meta property="og:image" content="https://browserreplay.com/public/og-image.png" />
+  <meta property="og:site_name" content="browser-replay" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="browser-replay" />
-  <meta name="twitter:description" content="Open source library for recording and replaying DOM interactions." />
+  <meta name="twitter:title" content="browser-replay — Open source session replay library" />
+  <meta name="twitter:description" content="Record and replay DOM interactions with this open source TypeScript library. Reproduce bugs exactly, generate tests from real user flows, and build session replay tools." />
   <meta name="twitter:image" content="https://browserreplay.com/public/og-image.png" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareSourceCode",
+        "name": "browser-replay",
+        "description": "Open source TypeScript library for recording and replaying DOM interactions in the browser. Capture sessions, reproduce bugs exactly, and generate tests from real user flows.",
+        "url": "https://browserreplay.com",
+        "codeRepository": "https://github.com/browser-replay/browser-replay",
+        "programmingLanguage": {
+          "@type": "ComputerLanguage",
+          "name": "TypeScript"
+        },
+        "license": "https://opensource.org/licenses/MIT",
+        "keywords": "session replay, DOM recording, browser testing, bug reproduction, TypeScript, open source, rrweb",
+        "author": {
+          "@type": "Organization",
+          "name": "browser-replay",
+          "url": "https://github.com/browser-replay"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "name": "browser-replay",
+        "url": "https://browserreplay.com"
+      }
+    ]
+  }
+  </script>
 
   <link rel="icon" href="/public/favicon.ico" />
   <link rel="stylesheet" href="styles/main.css" />
@@ -28,8 +62,9 @@
   <header class="nav">
     <a href="/" class="nav__logo">browser-replay</a>
     <nav class="nav__links">
-      <a href="#install">Docs</a>
+      <a href="#install">Quick start</a>
       <a href="#packages">Packages</a>
+      <a href="https://github.com/browser-replay/browser-replay/blob/main/docs/guide.md" target="_blank" rel="noopener">Guide</a>
       <a href="https://github.com/browser-replay/browser-replay" target="_blank" rel="noopener">GitHub</a>
     </nav>
   </header>
@@ -41,11 +76,12 @@
         <img src="https://github.com/browser-replay/browser-replay/actions/workflows/ci.yml/badge.svg" alt="CI" />
         <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="MIT License" />
         <img src="https://img.shields.io/npm/v/@browser-replay/core.svg" alt="npm version" />
+        <img src="https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white" alt="TypeScript" />
       </div>
       <h1 class="hero__title">Record and replay<br />DOM interactions</h1>
       <p class="hero__subtitle">
-        browser-replay is an open source library for capturing and replaying browser sessions.
-        Reproduce bugs exactly, build richer debugging tools, and understand how users interact with your app.
+        browser-replay is an open source TypeScript library for capturing and replaying browser sessions.
+        Reproduce bugs exactly, generate tests from real user flows, and understand how your app behaves in the wild.
       </p>
       <div class="hero__ctas">
         <a href="#install" class="btn btn--primary">Get started</a>
@@ -54,7 +90,7 @@
     </div>
   </section>
 
-  <!-- Code example -->
+  <!-- Quick start -->
   <section class="code-section" id="install">
     <div class="container">
       <div class="code-cols">
@@ -64,21 +100,67 @@
           <pre><code><span class="c">npm install @browser-replay/record</span></code></pre>
           <pre><code><span class="kw">import</span> { record } <span class="kw">from</span> <span class="str">'@browser-replay/record'</span>;
 
-record({
+<span class="kw">let</span> events = [];
+
+<span class="kw">const</span> stop = record({
   emit(event) {
-    <span class="c">// send to your backend</span>
-    sendToServer(event);
+    events.push(event);
   },
-});</code></pre>
+});
+
+<span class="c">// call stop() to end the recording</span></code></pre>
         </div>
         <div class="code-col">
           <h2>Replay</h2>
-          <p>Play back any recorded session pixel-perfectly inside a React player component.</p>
+          <p>Play back any recorded session with a React player component — timeline, scrubber, and controls included.</p>
           <pre><code><span class="c">npm install @browser-replay/player react react-dom</span></code></pre>
           <pre><code><span class="kw">import</span> { DomReplayPlayer } <span class="kw">from</span> <span class="str">'@browser-replay/player'</span>;
 <span class="kw">import</span> <span class="str">'@browser-replay/player/dist/style.css'</span>;
 
-&lt;<span class="tag">DomReplayPlayer</span> <span class="attr">events</span>={events} /&gt;</code></pre>
+&lt;<span class="tag">DomReplayPlayer</span>
+  <span class="attr">events</span>={events}
+  <span class="attr">autoPlay</span>
+/&gt;</code></pre>
+        </div>
+      </div>
+
+      <div class="cdn-install">
+        <p class="cdn-install__label">Or use the CDN — no build step required:</p>
+        <pre><code>&lt;<span class="tag">link</span> <span class="attr">rel</span>=<span class="str">"stylesheet"</span> <span class="attr">href</span>=<span class="str">"https://cdn.jsdelivr.net/npm/@browser-replay/core@latest/dist/style.css"</span> /&gt;
+&lt;<span class="tag">script</span> <span class="attr">src</span>=<span class="str">"https://cdn.jsdelivr.net/npm/@browser-replay/core@latest/dist/core.umd.min.cjs"</span>&gt;&lt;/<span class="tag">script</span>&gt;</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key capabilities -->
+  <section class="capabilities">
+    <div class="container">
+      <h2 class="section-title">Key capabilities</h2>
+      <p class="section-subtitle">Built for production use — privacy controls, extensibility, and full TypeScript support out of the box.</p>
+      <div class="capabilities__grid">
+        <div class="capability">
+          <h3>TypeScript-first</h3>
+          <p>Full type definitions ship with every package. Works with ESM and CommonJS bundlers.</p>
+        </div>
+        <div class="capability">
+          <h3>Privacy controls</h3>
+          <p>Block, mask, or ignore any element using CSS classes — <code>dr-block</code>, <code>dr-mask</code>, <code>dr-ignore</code>. Passwords masked by default.</p>
+        </div>
+        <div class="capability">
+          <h3>Plugin system</h3>
+          <p>First-party plugins for console logs, sequential IDs, and canvas via WebRTC. Build your own with the plugin API.</p>
+        </div>
+        <div class="capability">
+          <h3>Canvas &amp; media</h3>
+          <p>Optionally record <code>&lt;canvas&gt;</code> elements, inline images, and cross-origin iframes alongside DOM mutations.</p>
+        </div>
+        <div class="capability">
+          <h3>Live mode</h3>
+          <p>Stream events in real time for live collaboration, remote support, or co-browsing scenarios.</p>
+        </div>
+        <div class="capability">
+          <h3>Video export</h3>
+          <p>Convert any recorded session to video with <code>@browser-replay/video</code> — useful for sharing replays without a player.</p>
         </div>
       </div>
     </div>
@@ -127,27 +209,50 @@ record({
         </thead>
         <tbody>
           <tr>
+            <td><a href="https://www.npmjs.com/package/@browser-replay/core" target="_blank" rel="noopener"><code>@browser-replay/core</code></a></td>
+            <td>Record + replay in a single package — recommended for CDN usage</td>
+          </tr>
+          <tr>
             <td><a href="https://www.npmjs.com/package/@browser-replay/record" target="_blank" rel="noopener"><code>@browser-replay/record</code></a></td>
-            <td>Record DOM events</td>
+            <td>Recording only — smaller bundle for apps that only need to capture sessions</td>
           </tr>
           <tr>
             <td><a href="https://www.npmjs.com/package/@browser-replay/replay" target="_blank" rel="noopener"><code>@browser-replay/replay</code></a></td>
-            <td>Replay engine</td>
+            <td>Replay engine — minimal programmatic API without a UI</td>
           </tr>
           <tr>
             <td><a href="https://www.npmjs.com/package/@browser-replay/player" target="_blank" rel="noopener"><code>@browser-replay/player</code></a></td>
-            <td>React player UI</td>
+            <td>React player UI with timeline, scrubber, and playback controls</td>
           </tr>
           <tr>
             <td><a href="https://www.npmjs.com/package/@browser-replay/player-core" target="_blank" rel="noopener"><code>@browser-replay/player-core</code></a></td>
-            <td>Shared player logic (framework-agnostic)</td>
+            <td>Framework-agnostic player logic — bring your own UI</td>
           </tr>
           <tr>
-            <td><a href="https://www.npmjs.com/package/@browser-replay/core" target="_blank" rel="noopener"><code>@browser-replay/core</code></a></td>
-            <td>Record + replay core primitives</td>
+            <td><a href="https://www.npmjs.com/package/@browser-replay/snapshot" target="_blank" rel="noopener"><code>@browser-replay/snapshot</code></a></td>
+            <td>DOM serialization and rebuilding — serialize page state to JSON</td>
+          </tr>
+          <tr>
+            <td><a href="https://www.npmjs.com/package/@browser-replay/packer" target="_blank" rel="noopener"><code>@browser-replay/packer</code></a></td>
+            <td>Compress and decompress event data to reduce storage size</td>
+          </tr>
+          <tr>
+            <td><a href="https://www.npmjs.com/package/@browser-replay/video" target="_blank" rel="noopener"><code>@browser-replay/video</code></a></td>
+            <td>Convert recorded sessions to video files</td>
+          </tr>
+          <tr>
+            <td><a href="https://www.npmjs.com/package/@browser-replay/web-extension" target="_blank" rel="noopener"><code>@browser-replay/web-extension</code></a></td>
+            <td>Browser extension — record any page without changing its code</td>
           </tr>
         </tbody>
       </table>
+      <p class="pkg-note">
+        Plugin packages:
+        <code>plugin-console-record</code>, <code>plugin-console-replay</code>,
+        <code>plugin-sequential-id-record</code>, <code>plugin-sequential-id-replay</code>,
+        <code>plugin-canvas-webrtc-record</code>, <code>plugin-canvas-webrtc-replay</code>.
+        Additional utilities: <code>@browser-replay/dom</code>, <code>@browser-replay/types</code>, <code>@browser-replay/utils</code>.
+      </p>
     </div>
   </section>
 
@@ -164,7 +269,7 @@ record({
         <a href="https://github.com/browser-replay/browser-replay" class="btn btn--ghost" target="_blank" rel="noopener">GitHub repo</a>
         <a href="https://github.com/browser-replay/browser-replay/issues" class="btn btn--ghost" target="_blank" rel="noopener">Issues</a>
         <a href="https://github.com/browser-replay/browser-replay/discussions" class="btn btn--ghost" target="_blank" rel="noopener">Discussions</a>
-        <a href="https://github.com/browser-replay/browser-replay/blob/master/CONTRIBUTING.md" class="btn btn--ghost" target="_blank" rel="noopener">Contributing</a>
+        <a href="https://github.com/browser-replay/browser-replay/blob/main/CONTRIBUTING.md" class="btn btn--ghost" target="_blank" rel="noopener">Contributing</a>
       </div>
     </div>
   </section>
@@ -173,7 +278,7 @@ record({
   <footer class="footer">
     <div class="container">
       <p>
-        &copy; 2024 browser-replay contributors &mdash; MIT License &mdash;
+        &copy; 2026 browser-replay contributors &mdash; MIT License &mdash;
         Built on <a href="https://github.com/rrweb-io/rrweb" target="_blank" rel="noopener">rrweb</a>
       </p>
     </div>
