@@ -6,6 +6,11 @@
   <title>browser-replay — Open source session replay library for the browser</title>
   <meta name="description" content="browser-replay is an open source TypeScript library for recording and replaying browser sessions. Capture DOM events, reproduce bugs exactly, generate tests from real user flows, and build session replay tools." />
   <link rel="canonical" href="https://browserreplay.com" />
+  <meta name="theme-color" content="#0d1117" />
+
+  <!-- Preconnect for external badge assets -->
+  <link rel="preconnect" href="https://img.shields.io" />
+  <link rel="preconnect" href="https://github.com" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="browser-replay — Open source session replay library" />
@@ -13,6 +18,8 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://browserreplay.com" />
   <meta property="og:image" content="https://browserreplay.com/public/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:site_name" content="browser-replay" />
 
   <!-- Twitter Card -->
@@ -61,22 +68,24 @@
   <!-- Nav -->
   <header class="nav">
     <a href="/" class="nav__logo">browser-replay</a>
-    <nav class="nav__links">
+    <nav class="nav__links" aria-label="Main navigation">
       <a href="#install">Quick start</a>
       <a href="#packages">Packages</a>
-      <a href="https://github.com/browser-replay/browser-replay/blob/main/docs/guide.md" target="_blank" rel="noopener">Guide</a>
-      <a href="https://github.com/browser-replay/browser-replay" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://github.com/browser-replay/browser-replay/blob/main/docs/guide.md" target="_blank" rel="noopener noreferrer">Guide</a>
+      <a href="https://github.com/browser-replay/browser-replay" target="_blank" rel="noopener noreferrer">GitHub</a>
     </nav>
   </header>
+
+  <main>
 
   <!-- Hero -->
   <section class="hero">
     <div class="container">
       <div class="hero__badges">
-        <a href="https://github.com/browser-replay/browser-replay/actions/workflows/ci.yml" target="_blank" rel="noopener"><img src="https://github.com/browser-replay/browser-replay/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
-        <a href="https://github.com/browser-replay/browser-replay/blob/main/LICENSE" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="MIT License" /></a>
-        <a href="https://www.npmjs.com/package/@browser-replay/core" target="_blank" rel="noopener"><img src="https://img.shields.io/npm/v/@browser-replay/core.svg" alt="npm version" /></a>
-        <a href="https://www.typescriptlang.org" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white" alt="TypeScript" /></a>
+        <a href="https://github.com/browser-replay/browser-replay/actions/workflows/ci.yml" target="_blank" rel="noopener noreferrer"><img src="https://github.com/browser-replay/browser-replay/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
+        <a href="https://github.com/browser-replay/browser-replay/blob/main/LICENSE" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="MIT License" /></a>
+        <a href="https://www.npmjs.com/package/@browser-replay/core" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/npm/v/@browser-replay/core.svg" alt="npm version" /></a>
+        <a href="https://www.typescriptlang.org" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white" alt="TypeScript" /></a>
       </div>
       <h1 class="hero__title">Record and replay<br />DOM interactions</h1>
       <p class="hero__subtitle">
@@ -85,7 +94,7 @@
       </p>
       <div class="hero__ctas">
         <a href="#install" class="btn btn--primary">Get started</a>
-        <a href="https://github.com/browser-replay/browser-replay" class="btn btn--ghost" target="_blank" rel="noopener">View on GitHub</a>
+        <a href="https://github.com/browser-replay/browser-replay" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">View on GitHub</a>
       </div>
     </div>
   </section>
@@ -209,39 +218,39 @@
         </thead>
         <tbody>
           <tr>
-            <td><a href="https://www.npmjs.com/package/@browser-replay/core" target="_blank" rel="noopener"><code>@browser-replay/core</code></a></td>
+            <td><a href="https://www.npmjs.com/package/@browser-replay/core" target="_blank" rel="noopener noreferrer"><code>@browser-replay/core</code></a></td>
             <td>Record + replay in a single package — recommended for CDN usage</td>
           </tr>
           <tr>
-            <td><a href="https://www.npmjs.com/package/@browser-replay/record" target="_blank" rel="noopener"><code>@browser-replay/record</code></a></td>
+            <td><a href="https://www.npmjs.com/package/@browser-replay/record" target="_blank" rel="noopener noreferrer"><code>@browser-replay/record</code></a></td>
             <td>Recording only — smaller bundle for apps that only need to capture sessions</td>
           </tr>
           <tr>
-            <td><a href="https://www.npmjs.com/package/@browser-replay/replay" target="_blank" rel="noopener"><code>@browser-replay/replay</code></a></td>
+            <td><a href="https://www.npmjs.com/package/@browser-replay/replay" target="_blank" rel="noopener noreferrer"><code>@browser-replay/replay</code></a></td>
             <td>Replay engine — minimal programmatic API without a UI</td>
           </tr>
           <tr>
-            <td><a href="https://www.npmjs.com/package/@browser-replay/player" target="_blank" rel="noopener"><code>@browser-replay/player</code></a></td>
+            <td><a href="https://www.npmjs.com/package/@browser-replay/player" target="_blank" rel="noopener noreferrer"><code>@browser-replay/player</code></a></td>
             <td>React player UI with timeline, scrubber, and playback controls</td>
           </tr>
           <tr>
-            <td><a href="https://www.npmjs.com/package/@browser-replay/player-core" target="_blank" rel="noopener"><code>@browser-replay/player-core</code></a></td>
+            <td><a href="https://www.npmjs.com/package/@browser-replay/player-core" target="_blank" rel="noopener noreferrer"><code>@browser-replay/player-core</code></a></td>
             <td>Framework-agnostic player logic — bring your own UI</td>
           </tr>
           <tr>
-            <td><a href="https://www.npmjs.com/package/@browser-replay/snapshot" target="_blank" rel="noopener"><code>@browser-replay/snapshot</code></a></td>
+            <td><a href="https://www.npmjs.com/package/@browser-replay/snapshot" target="_blank" rel="noopener noreferrer"><code>@browser-replay/snapshot</code></a></td>
             <td>DOM serialization and rebuilding — serialize page state to JSON</td>
           </tr>
           <tr>
-            <td><a href="https://www.npmjs.com/package/@browser-replay/packer" target="_blank" rel="noopener"><code>@browser-replay/packer</code></a></td>
+            <td><a href="https://www.npmjs.com/package/@browser-replay/packer" target="_blank" rel="noopener noreferrer"><code>@browser-replay/packer</code></a></td>
             <td>Compress and decompress event data to reduce storage size</td>
           </tr>
           <tr>
-            <td><a href="https://www.npmjs.com/package/@browser-replay/video" target="_blank" rel="noopener"><code>@browser-replay/video</code></a></td>
+            <td><a href="https://www.npmjs.com/package/@browser-replay/video" target="_blank" rel="noopener noreferrer"><code>@browser-replay/video</code></a></td>
             <td>Convert recorded sessions to video files</td>
           </tr>
           <tr>
-            <td><a href="https://www.npmjs.com/package/@browser-replay/web-extension" target="_blank" rel="noopener"><code>@browser-replay/web-extension</code></a></td>
+            <td><a href="https://www.npmjs.com/package/@browser-replay/web-extension" target="_blank" rel="noopener noreferrer"><code>@browser-replay/web-extension</code></a></td>
             <td>Browser extension — record any page without changing its code</td>
           </tr>
         </tbody>
@@ -262,24 +271,26 @@
       <h2 class="section-title">Open source</h2>
       <p>
         browser-replay is released under the <strong>MIT License</strong> and built on the shoulders of
-        <a href="https://github.com/rrweb-io/rrweb" target="_blank" rel="noopener">rrweb</a>.
+        <a href="https://github.com/rrweb-io/rrweb" target="_blank" rel="noopener noreferrer">rrweb</a>.
         Contributions are welcome — open an issue, send a PR, or join the discussion on GitHub.
       </p>
       <div class="oss__links">
-        <a href="https://github.com/browser-replay/browser-replay" class="btn btn--ghost" target="_blank" rel="noopener">GitHub repo</a>
-        <a href="https://github.com/browser-replay/browser-replay/issues" class="btn btn--ghost" target="_blank" rel="noopener">Issues</a>
-        <a href="https://github.com/browser-replay/browser-replay/discussions" class="btn btn--ghost" target="_blank" rel="noopener">Discussions</a>
-        <a href="https://github.com/browser-replay/browser-replay/blob/main/CONTRIBUTING.md" class="btn btn--ghost" target="_blank" rel="noopener">Contributing</a>
+        <a href="https://github.com/browser-replay/browser-replay" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">GitHub repo</a>
+        <a href="https://github.com/browser-replay/browser-replay/issues" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">Issues</a>
+        <a href="https://github.com/browser-replay/browser-replay/discussions" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">Discussions</a>
+        <a href="https://github.com/browser-replay/browser-replay/blob/main/CONTRIBUTING.md" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">Contributing</a>
       </div>
     </div>
   </section>
+
+  </main>
 
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <p>
         &copy; 2026 browser-replay contributors &mdash; MIT License &mdash;
-        Built on <a href="https://github.com/rrweb-io/rrweb" target="_blank" rel="noopener">rrweb</a>
+        Built on <a href="https://github.com/rrweb-io/rrweb" target="_blank" rel="noopener noreferrer">rrweb</a>
       </p>
     </div>
   </footer>
